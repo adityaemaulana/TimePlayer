@@ -62,4 +62,10 @@ object NotificationUtil {
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(KEY_NOTIFICATION_ID, notification)
     }
+
+    fun removeNotificaton(context: Context) {
+        val mNotificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        mNotificationManager.cancel(KEY_NOTIFICATION_ID)
+    }
 }

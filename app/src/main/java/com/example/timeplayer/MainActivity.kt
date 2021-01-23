@@ -74,16 +74,6 @@ class MainActivity : AppCompatActivity() {
         startService(mBoundServiceIntent)
     }
 
-    override fun onResume() {
-        super.onResume()
-        setupReceiver()
-    }
-
-    override fun onStop() {
-        unregisterReceiver(broadcastReceiver)
-        super.onStop()
-    }
-
     fun setupReceiver() {
         intentFilter = IntentFilter();
         intentFilter.addAction(ACTION_STATE_CHANGED)

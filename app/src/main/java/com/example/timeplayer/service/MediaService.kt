@@ -56,6 +56,7 @@ class MediaService : Service(), MediaPlayerCallback {
                     init()
                 }
                 ACTION_DESTROY -> if (mMediaPlayer?.isPlaying as Boolean) {
+                    stopNotif()
                     stopSelf()
                 }
                 else -> {
@@ -190,7 +191,8 @@ class MediaService : Service(), MediaPlayerCallback {
     }
 
     private fun stopNotif() {
-        stopForeground(false)
+        NotificationUtil.removeNotificaton(this)
+        stopForeground(true)
     }
 
     private val broadcastReceiver = object : BroadcastReceiver() {
